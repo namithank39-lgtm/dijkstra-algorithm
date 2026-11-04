@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<package format="2">
+
+  <name>dijkstra_planner</name>
+
+  <version>1.0.0</version>
+
+  <description>
+    Grid-based Dijkstra path planning and RViz visualization for ROS Noetic.
+  </description>
+
+  <maintainer email="maintainer@example.com">
+    Project Maintainer
+  </maintainer>
+
+  <license>MIT</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>rospy</depend>
+
+  <depend>geometry_msgs</depend>
+
+  <depend>visualization_msgs</depend>
+
+  <depend>std_msgs</depend>
+
+  <export/>
+
+</package>
