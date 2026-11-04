@@ -1,7 +1,5 @@
 # dijkstra algorithm
 
-This repository contains two independent ROS 1 Noetic catkin packages based on the uploaded PERUT525 course-project report.
-
 ## Projects
 
 1. **`dijkstra_planner`** – 20×20, four-connected grid path planning with Dijkstra's algorithm. It visualizes the grid, obstacles, explored cells, current cell, distance labels, start, goal and final path in RViz. It does not require Gazebo or a physical robot.
