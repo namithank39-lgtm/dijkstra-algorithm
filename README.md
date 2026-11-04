@@ -1,6 +1,6 @@
 # dijkstra algorithm
 
-## Projects
+## Projects 1
 
 1. **`dijkstra_planner`** – 20×20, four-connected grid path planning with Dijkstra's algorithm. It visualizes the grid, obstacles, explored cells, current cell, distance labels, start, goal and final path in RViz. It does not require Gazebo or a physical robot.
 
