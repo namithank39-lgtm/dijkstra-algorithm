@@ -1,0 +1,29 @@
+cmake_minimum_required(VERSION 3.0.2)
+
+project(dijkstra_planner)
+
+find_package(catkin REQUIRED COMPONENTS
+  rospy
+  geometry_msgs
+  visualization_msgs
+  std_msgs
+)
+
+catkin_package(
+  CATKIN_DEPENDS
+  rospy
+  geometry_msgs
+  visualization_msgs
+  std_msgs
+)
+
+catkin_install_python(
+  PROGRAMS
+  scripts/dijkstra_node.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(
+  DIRECTORY launch rviz
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
