@@ -102,4 +102,100 @@ Obstacle cells are defined in `scripts/dijkstra_node.py` in `build_obstacles()`.
 Marker namespaces distinguish grid, obstacles, visited cells, current cell, path, start, goal and distance labels.
 
 ---
+# LiDAR-Based Obstacle Avoidance Using TurtleBot3 and ROS Noetic
 
+## Project Description
+
+This project implements a reactive LiDAR-based obstacle-avoidance system for the TurtleBot3 Burger robot using ROS 1 Noetic and Python 3.
+
+The robot uses simulated LiDAR data to detect obstacles in its surroundings and automatically changes its direction to avoid them.
+
+## Technologies Used
+
+- Ubuntu 20.04
+- ROS 1 Noetic
+- Python 3
+- Gazebo
+- RViz
+- TurtleBot3 Burger
+- LiDAR sensor
+
+## ROS Topics
+
+| Topic | Message Type | Purpose |
+|---|---|---|
+| /scan | sensor_msgs/LaserScan | LiDAR input |
+| /cmd_vel | geometry_msgs/Twist | Velocity output |
+
+## Control Parameters
+
+| Parameter | Value |
+|---|---:|
+| Obstacle threshold | 0.7 m |
+| Forward velocity | 0.18 m/s |
+| Turning velocity | 0.8 rad/s |
+
+## Working Principle
+
+1. The LiDAR sensor measures surrounding distances.
+2. The Python ROS node receives data through `/scan`.
+3. Front, left and right distances are extracted.
+4. The controller checks the front distance against the 0.7 m threshold.
+5. If the path is clear, the robot moves forward.
+6. If an obstacle is detected, the robot turns towards the side with greater clearance.
+7. Velocity commands are published through `/cmd_vel`.
+
+## Package Structure
+
+```text
+turtlebot_obstacle_avoidance/
+├── CMakeLists.txt
+├── package.xml
+├── scripts/
+│   └── obstacle_avoidance.py
+└── launch/
+    └── obstacle_avoidance.launch
+```
+
+## Build Instructions
+
+```bash
+cd ~/obstacle_ws
+source /opt/ros/noetic/setup.bash
+catkin_make
+source devel/setup.bash
+```
+
+## Run Instructions
+
+Start ROS:
+
+```bash
+roscore
+```
+
+Start Gazebo:
+
+```bash
+export TURTLEBOT3_MODEL=burger
+roslaunch turtlebot3_gazebo turtlebot3_world.launch
+```
+
+Run the controller:
+
+```bash
+source ~/obstacle_ws/devel/setup.bash
+roslaunch turtlebot_obstacle_avoidance obstacle_avoidance.launch
+```
+
+## Expected Output
+
+The TurtleBot3 Burger moves forward when the path is clear and turns towards the side with greater clearance when an obstacle is detected.
+
+## Limitations
+
+This is a basic reactive obstacle-avoidance controller. It does not implement SLAM, global path planning or the complete ROS Navigation Stack.
+
+## License
+
+MIT
