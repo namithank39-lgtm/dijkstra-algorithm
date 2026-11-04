@@ -1,4 +1,4 @@
-# ROS Noetic – Two Mobile Robotics Course Projects
+# dijkstra algorithm
 
 This repository contains two independent ROS 1 Noetic catkin packages based on the uploaded PERUT525 course-project report.
 
