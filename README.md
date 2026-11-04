@@ -5,7 +5,6 @@ This repository contains two independent ROS 1 Noetic catkin packages based on t
 ## Projects
 
 1. **`dijkstra_planner`** – 20×20, four-connected grid path planning with Dijkstra's algorithm. It visualizes the grid, obstacles, explored cells, current cell, distance labels, start, goal and final path in RViz. It does not require Gazebo or a physical robot.
-2. **`turtlebot_obstacle_avoidance`** – reactive LiDAR obstacle avoidance for TurtleBot3 Burger in Gazebo. It subscribes to `/scan` and publishes velocity commands to `/cmd_vel`.
 
 Both packages use Python 3 (`#!/usr/bin/env python3`) and `rospy`, and are intended for Ubuntu 20.04 + ROS Noetic.
 
